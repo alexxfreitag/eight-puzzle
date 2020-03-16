@@ -13,6 +13,9 @@ import java.util.List;
  * @author alexe
  */
 public class Node {
+    
+    public final static Integer COLUMN = 3;
+    
     public List<Node> children = new ArrayList<>();
     public Node parent;
     public Integer[] puzzle = new Integer[9];
@@ -25,6 +28,31 @@ public class Node {
     public void setPuzzle(Integer[] p) {
 	for (int i=0; i<puzzle.length; i++) {
 	    this.puzzle[i] = p[i];
+	}
+    }
+    
+    public void moveRight(Integer[] p, Integer index) {
+	if (index % COLUMN < COLUMN - 1) {
+	    Integer[] copyPuzzle = new Integer[9];
+	    copy(copyPuzzle, p);
+	}
+    }
+    
+    public void moveLeft(Integer[] p, Integer index) {
+	
+    }
+    
+    public void moveUp(Integer[] p, Integer index) {
+	
+    }
+    
+    public void moveDown(Integer[] p, Integer index) {
+	
+    }
+    
+    public void copy(Integer[] first, Integer[] second) {
+	for (int i=0;i<second.length;i++) {
+	   first[i] = second[i];
 	}
     }
     
