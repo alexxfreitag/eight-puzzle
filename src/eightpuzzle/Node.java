@@ -47,15 +47,70 @@ public class Node {
     }
     
     public void moveLeft(Integer[] p, Integer index) {
-	
+	if (index % COLUMN > 0) {
+	    Integer[] copiedPuzzle = new Integer[9];
+	    copy(copiedPuzzle, p);
+	    
+	    Integer temp = copiedPuzzle[index-1];
+	    copiedPuzzle[index-1] = copiedPuzzle[index];
+	    copiedPuzzle[index] = temp;
+	    
+	    Node child = new Node(copiedPuzzle);
+	    children.add(child);
+	    child.parent = this;
+	}
     }
     
     public void moveUp(Integer[] p, Integer index) {
-	
+	if (index - COLUMN >= 0) {
+	    Integer[] copiedPuzzle = new Integer[9];
+	    copy(copiedPuzzle, p);
+	    
+	    Integer temp = copiedPuzzle[index+3];
+	    copiedPuzzle[index+3] = copiedPuzzle[index];
+	    copiedPuzzle[index] = temp;
+	    
+	    Node child = new Node(copiedPuzzle);
+	    children.add(child);
+	    child.parent = this;
+	}
     }
     
     public void moveDown(Integer[] p, Integer index) {
+	if (index + COLUMN < puzzle.length) {
+	    Integer[] copiedPuzzle = new Integer[9];
+	    copy(copiedPuzzle, p);
+	    
+	    Integer temp = copiedPuzzle[index-3];
+	    copiedPuzzle[index-3] = copiedPuzzle[index];
+	    copiedPuzzle[index] = temp;
+	    
+	    Node child = new Node(copiedPuzzle);
+	    children.add(child);
+	    child.parent = this;
+	}
+    }
+    
+    public void print() {
 	
+	Integer m = 0;
+	for (int i=0; i<COLUMN;i++) {
+	    for (int j=0; j<COLUMN; j++) {
+		System.out.println(puzzle[m] + " ");
+		m++;
+	    }
+	    System.out.println("\n");
+	}	
+    }
+    
+    public boolean isSame(Integer[] p) {
+	boolean samePuzzle = true;
+	for (int i=0;i<p.length;i++) {
+	    if (puzzle[i] != p[i]) {
+		samePuzzle = false;
+	    }
+	}
+	return samePuzzle;
     }
     
     public void copy(Integer[] first, Integer[] second) {
