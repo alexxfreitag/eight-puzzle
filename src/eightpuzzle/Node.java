@@ -33,8 +33,16 @@ public class Node {
     
     public void moveRight(Integer[] p, Integer index) {
 	if (index % COLUMN < COLUMN - 1) {
-	    Integer[] copyPuzzle = new Integer[9];
-	    copy(copyPuzzle, p);
+	    Integer[] copiedPuzzle = new Integer[9];
+	    copy(copiedPuzzle, p);
+	    
+	    Integer temp = copiedPuzzle[index+1];
+	    copiedPuzzle[index+1] = copiedPuzzle[index];
+	    copiedPuzzle[index] = temp;
+	    
+	    Node child = new Node(copiedPuzzle);
+	    children.add(child);
+	    child.parent = this;
 	}
     }
     
