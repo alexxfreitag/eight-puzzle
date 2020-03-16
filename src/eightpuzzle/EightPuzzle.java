@@ -15,7 +15,13 @@ public class EightPuzzle {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-	// TODO code application logic here
+	Integer[] puzzle = {
+	    1, 2, 4,
+	    3, 0, 5,
+	    7, 6, 8
+	};
+	
+	Node initNode = new Node(puzzle);
     }
     
 }
