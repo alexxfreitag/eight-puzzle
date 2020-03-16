@@ -113,6 +113,18 @@ public class Node {
 	return samePuzzle;
     }
     
+    public void expandMove() {
+	for (int i=0; i<puzzle.length; i++) {
+	    if (puzzle[i] == 0) {
+		x = i;
+	    }
+	    moveRight(puzzle, x);
+	    moveLeft(puzzle, x);
+	    moveUp(puzzle, x);
+	    moveDown(puzzle, x);
+	}
+    }
+     
     public void copy(Integer[] first, Integer[] second) {
 	for (int i=0;i<second.length;i++) {
 	   first[i] = second[i];

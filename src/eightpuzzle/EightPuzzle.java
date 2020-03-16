@@ -5,6 +5,8 @@
  */
 package eightpuzzle;
 
+import java.util.List;
+
 /**
  *
  * @author alexe
@@ -21,7 +23,17 @@ public class EightPuzzle {
 	    7, 6, 8
 	};
 	
-	Node initNode = new Node(puzzle);
+	Node root = new Node(puzzle);
+	UninformedSearch ui = new UninformedSearch();
+	List<Node> solution = ui.BreadtgFirstSearch(root);
+	
+	if (solution.size() > 0) {
+	    for (int i=0;i<solution.size();i++) {
+		solution.get(i).print();
+	    }
+	} else {
+	    System.out.println("no path to solution is found");
+	}
     }
     
 }
