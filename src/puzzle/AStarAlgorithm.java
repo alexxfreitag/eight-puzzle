@@ -34,6 +34,12 @@ public class AStarAlgorithm {
 	startState.add(7);
 	startState.add(4);
 	startState.add(8);
+	
+	String startStateStr = startState.toString().replace(",", " ");;
+	String matriz = startStateStr.substring(1, 9);
+	matriz += "\n"+startStateStr.substring(10, 18);
+	matriz += "\n"+startStateStr.substring(19, 26).replace(",", "	");
+	System.out.println("--Initial State\n"+matriz);
 
 	start.state = startState;
 	start.parent = null;
