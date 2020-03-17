@@ -43,9 +43,8 @@ public class AStarAlgorithm {
 				
 		//Creating goal node
 		Node goal = new Node();
-		ArrayList<Integer> goalState = new ArrayList<>();
+		ArrayList<Integer> goalState = new ArrayList<>();		
 		
-		goalState.add(0);
 		goalState.add(1);
 		goalState.add(2);
 		goalState.add(3);
@@ -54,6 +53,7 @@ public class AStarAlgorithm {
 		goalState.add(6);
 		goalState.add(7);
 		goalState.add(8);
+		goalState.add(0);
 		
 		
 		//Creating goal node
