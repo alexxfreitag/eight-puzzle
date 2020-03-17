@@ -1,4 +1,4 @@
-# 8 Puzzle
+# 8 Puzzle - Alex Freitag e Augusto Watzko
 
 ## Greedy Search
 
